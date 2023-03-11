@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Project Hazel | ECommerce</title>
+</head>
+ <body>
+    
+
+    <div class="container">
+        <div class="navbar">
+        <div class="logo">
+           <!---logo-->
+        </div>
+        <nav>
+            <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hazel.html">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+       <a href="Product.html"> <img src="images/cart.png" width="30px" height="30px"></a>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+    </div>
+
+     <!---------Account-page-->
+        
+
+         <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="images/image1.png" width="100%">
+                    </div>
+
+                    <div class="col-2">
+                     <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login">Login</span>
+                            <span onclick="signup">SignUP</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form id="LoginForm">
+                            <input type="text" placeholder="Username">
+                            <input type="password" placeholder="Password">
+                            <button type="Submit" class="btn">Login</button>
+                            <a href=""> Forgot Password</a>
+                        </form>
+                        <form id="SignUpForm">
+                            <input type="text" placeholder="Username">
+                            <input type="Email" placeholder="Email">
+                            <input type="password" placeholder="Password">
+                            <button type="Submit" class="btn">SignUP</button>
+                        </form>
+                     </div>
+                    </div>
+                   
+                </div>
+            </div>
+         </div>
+
+
+
+
+
+            <!---------------footer------------------>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                       <div class="footer-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Download App for Android and ios Mobile Phone</p>
+                        <div class="app-logo">
+                            <img src="images/play-store.png" alt="">
+                            <img src="images/app-store.png" alt="">
+                        </div>
+                       </div>
+
+                       <div class="footer-col-2">
+                       <!-------logo-->
+                        <p>Our Purpose is to Sustainably Make the Pleasure and Benefits of Sport</p>
+                       </div>
+
+                       <div class="footer-col-3">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Blog Post</li>
+                            <li> Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                       </div>
+
+                       <div class="footer-col-4">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li><i class="fab fa-instagram"></i></li>
+                       <li><a href="https://twitter.com/ProjectHazel1"><i class="fab fa-twitter"></i></a></li>
+                             <li><i class="fab fa-youtube"></i></li>
+                            <li><i class="fab fa-tiktok"></i></li>
+                        </ul>
+                       </div>
+
+                    </div>
+                    <hr>
+                    <p class="copyright">Copyright&#169;&#174; 2023 - Project Hazel</p>
+                </div>
+            </div>
+
+            <script>
+
+                var MenuItems = document.getElementById("MenuItems");
+
+                MenuItems.style.maxHeight = "0px";
+
+                function menutoggle(){
+                    if(MenuItems.style.maxHeight == "0px")
+                    {
+                         MenuItems.style.maxHeight = "200px";
+                    }
+                    else{
+                        MenuItems.style.maxHeight = "0px"
+                    }
+                }
+
+                const textLoop1 = document.getElementById("text-loop-1");
+                const textLoop2 = document.getElementById("text-loop-2");
+                const texts1 = ["Unlock a Better You with Hazel: Elevate Your Life to the Next Level"];
+                const texts2 = ["|A New Style", "|A Fresh Start", "|A Better You","|New Tech","|All at The Hazel Store"];
+                let index1 = 0;
+                let index2 = 0;
+                
+                function loop() {
+                  textLoop1.innerHTML = texts1[index1];
+                  index1 = (index1 + 1) % texts1.length;
+                
+                  const words = texts2[index2].split(" ");
+                
+                  for (let i = 0; i < words.length; i++) {
+                    setTimeout(() => {
+                      textLoop2.innerHTML = words.slice(0, i + 1).join(" ");
+                      if (i === words.length - 1) {
+                        index2 = (index2 + 1) % texts2.length;
+                        setTimeout(loop, 3000); // Increase the duration to 3000 milliseconds (3 seconds)
+                      }
+                    }, i * 100); // Change the delay to 100 milliseconds (0.1 seconds)
+                  }
+                }
+                
+                loop();
+            
+            </script>
+<!---------------toggle------------------>
+          
+               <script>
+
+                 // get the necessary elements from the HTML
+const loginBtn = document.querySelector('.form-btn span:nth-child(1)');
+const signupBtn = document.querySelector('.form-btn span:nth-child(2)');
+const indicator = document.querySelector('#Indicator');
+const loginForm = document.querySelector('#LoginForm');
+const signupForm = document.querySelector('#SignUpForm');
+
+// show the login form by default and hide the signup form
+signupForm.style.display = 'none';
+
+// switch to the signup form when the signup button is clicked
+signupBtn.addEventListener('click', () => {
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'block';
+    indicator.style.transform = 'translateX(100%)';
+});
+
+// switch to the login form when the login button is clicked
+loginBtn.addEventListener('click', () => {
+    loginForm.style.display = 'block';
+    signupForm.style.display = 'none';
+    indicator.style.transform = 'translateX(0)';
+});
+
+// handle form submission for login
+loginForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent the form from submitting normally
+    const username = loginForm.querySelector('input[type="text"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+    // TODO: handle login logic
+});
+
+// handle form submission for signup
+signupForm.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent the form from submitting normally
+    const username = signupForm.querySelector('input[type="text"]').value;
+    const email = signupForm.querySelector('input[type="email"]').value;
+    const password = signupForm.querySelector('input[type="password"]').value;
+    // TODO: handle signup logic
+});
+
+                
+                
+               </script>
+                    
+                 </body>
+                 </html>
